@@ -22,7 +22,7 @@ exports.getUser = async (req,res,next) => {
         console.log('decoded',decoded);
 
         const [row] = await conn.execute(
-            "SELECT `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role`,'attachment' FROM `users` WHERE `id`=?",
+            "SELECT `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role`,`attachment` FROM `users` WHERE `id`=?",
             [decoded.id]
         );
 
