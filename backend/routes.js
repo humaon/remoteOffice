@@ -20,7 +20,6 @@ const upload = multer({ storage: storage })
 const {register} = require('./controllers/registerController');
 const {login} = require('./controllers/loginController');
 const {getUser} = require('./controllers/getUserController');
-const {fileUpload} = require('./controllers/fileController');
 const {getAllUsers, editUser} = require('./controllers/adminController');
 
 router.post('/register',upload.fields([{
@@ -58,7 +57,11 @@ router.patch('/updateUser',upload.fields([{
 router.get('/getAllUsers',getAllUsers);
 getAllUsers
 
-router.post('/api/upload',upload.single('file'),[],fileUpload);
+
+
+
+
+
 
 
 module.exports = router;
