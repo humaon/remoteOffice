@@ -23,6 +23,7 @@ const {getUser} = require('./controllers/getUserController');
 const {getAllUsers, editUser} = require('./controllers/adminController');
 
 router.post('/register',upload.fields([{
+
   name: 'profileImage', maxCount: 1
 }, {
   name: 'attachment', maxCount: 1
@@ -40,7 +41,7 @@ router.post('/register',upload.fields([{
 ], register);
 
 
-router.post('login',[
+router.post('/login',[
     body('email',"Invalid email address")
     .notEmpty()
     .escape()
