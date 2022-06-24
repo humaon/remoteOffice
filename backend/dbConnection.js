@@ -4,7 +4,7 @@ const db_connection = mysql
   .createConnection({
     host: "localhost", // HOST NAME
     port:3306,
-    user: "admin", // USER NAME
+    user: "root", // USER NAME
     database: "remoteOffice", // DATABASE NAME
     password: "remote123@", // DATABASE PASSWORD
   })
