@@ -50,7 +50,7 @@ router.post('/login',[
 ],login);
 
 router.get('/getuser',getUser);
-router.get('singleUser',getSingleUser);
+router.get('/singleUser/:id',getSingleUser);
 router.patch('/updateUser',upload.fields([{
   name: 'profileImage', maxCount: 1
 }, {
