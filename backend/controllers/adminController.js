@@ -124,6 +124,9 @@ exports.editUser = async (req,res,next) => {
 exports.getSingleUser = async (req,res,next) => {
 
     try{
+       
+  
+
      console.log('aadmin');
 
         if(
@@ -152,10 +155,13 @@ exports.getSingleUser = async (req,res,next) => {
             if(row[0].role == 'admin')
             {
                 const [row] = await conn.execute(
-                    'SELECT  `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role` FROM users where `id`=?'
-            [req.params.id]
+                    "SELECT  `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role`,`attachment` FROM users where `id` = ?",[req.params.id]
+                   
                 );
-                res.json(row[0]);
+                if(row.length >0){
+                    res.json(row[0]);
+                }
+               
         
          
                 
