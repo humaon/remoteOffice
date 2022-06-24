@@ -20,7 +20,7 @@ const upload = multer({ storage: storage })
 const {register} = require('./controllers/registerController');
 const {login} = require('./controllers/loginController');
 const {getUser} = require('./controllers/getUserController');
-const {getAllUsers, editUser} = require('./controllers/adminController');
+const {getAllUsers, editUser, getSingleUser} = require('./controllers/adminController');
 
 router.post('/register',upload.fields([{
 
@@ -50,6 +50,7 @@ router.post('/login',[
 ],login);
 
 router.get('/getuser',getUser);
+router.get('singleUser',getSingleUser);
 router.patch('/updateUser',upload.fields([{
   name: 'profileImage', maxCount: 1
 }, {
