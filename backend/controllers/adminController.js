@@ -58,6 +58,9 @@ exports.editUser = async (req,res,next) => {
    
 
     try{
+
+
+
      console.log(req.body);
 
         if(
@@ -86,7 +89,7 @@ exports.editUser = async (req,res,next) => {
             if(row[0].role == 'admin')
             {
                 const [checkUniqueMail] = await conn.execute(
-                    "SELECT `email` FROM `users` WHERE `id` != ? & `email` = ?",
+                    "SELECT `email` FROM `users` WHERE `id` != ? and `email` = ?",
                     [req.body.id,req.body.email]
                 );
            if(checkUniqueMail.length>0){
