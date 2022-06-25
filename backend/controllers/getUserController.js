@@ -13,6 +13,7 @@ exports.getUser = async (req,res,next) => {
         ){
             return res.status(422).json({
                 message: "Please provide the token",
+                sucess:"false"
             });
         }
 
@@ -32,8 +33,9 @@ exports.getUser = async (req,res,next) => {
             });
         }
 
-        res.json({
-            message:"No user found"
+        return res.status(422).json({
+            message: "NO user found",
+            sucess:"false"
         });
         
     }

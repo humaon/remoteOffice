@@ -51,13 +51,9 @@ router.post('/login',[
 
 router.get('/getuser',getUser);
 router.get('/singleUser/:id',getSingleUser);
-router.patch('/updateUser',upload.fields([{
-  name: 'profileImage', maxCount: 1
-}, {
-  name: 'attachment', maxCount: 1
-}]),editUser);
+router.patch('/updateUser',editUser);
 router.get('/getAllUsers',getAllUsers);
-getAllUsers
+
 
 
 

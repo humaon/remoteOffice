@@ -83,8 +83,15 @@ exports.editUser = async (req,res,next) => {
             const id = req.body.id;
             if(row[0].role == 'admin')
             {
-            console.log('inside');
-           
+                const [checkUniqueMail] = await conn.execute(
+                    "SELECT `email` FROM `users` WHERE `id`!=? & `email` =?",
+                    [req.body.id,req.body.email]
+                );
+           if(checkUniqueMail.length>0){
+            return res.status(422).json({
+                message: "Please provide an unique email adress",
+            });
+           }
             const query = `UPDATE ??
                    SET ?? = ?, ?? = ? , ?? = ?
                    WHERE ?? = ?`;
@@ -92,7 +99,8 @@ exports.editUser = async (req,res,next) => {
 
     const rows = await conn.query(query, values)
     res.json({
-        message:"successfully updated"
+        message:"successfully updated",
+        
     });      
                 
             }
