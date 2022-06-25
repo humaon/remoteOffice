@@ -50,14 +50,15 @@ exports.getAllUsers = async (req,res,next) => {
         
     }
     catch(err){
+        console.log(err);
         next(err);
     }
 }
 exports.editUser = async (req,res,next) => {
-    console.log(req.body);
+   
 
     try{
-     console.log('aadmin');
+     console.log(req.body);
 
         if(
             !req.headers.authorization ||
@@ -85,7 +86,7 @@ exports.editUser = async (req,res,next) => {
             if(row[0].role == 'admin')
             {
                 const [checkUniqueMail] = await conn.execute(
-                    "SELECT `email` FROM `users` WHERE `id`!=? & `email` =?",
+                    "SELECT `email` FROM `users` WHERE `id` != ? & `email` = ?",
                     [req.body.id,req.body.email]
                 );
            if(checkUniqueMail.length>0){
@@ -125,6 +126,8 @@ exports.editUser = async (req,res,next) => {
         
     }
     catch(err){
+        console.log(err);
+
         next(err);
     }
 }
