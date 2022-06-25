@@ -54,6 +54,7 @@ exports.getAllUsers = async (req,res,next) => {
     }
 }
 exports.editUser = async (req,res,next) => {
+    console.log(req.body);
 
     try{
      console.log('aadmin');

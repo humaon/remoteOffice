@@ -31,7 +31,7 @@ exports.login = async (req,res,next) =>{
             });
         }
 
-        const theToken = jwt.sign({id:row[0].id,role:row[0].role},'remoteOffice',{ expiresIn: '1h' });
+        const theToken = jwt.sign({id:row[0].id,role:row[0].role},'remoteOffice',{ expiresIn: '20d' });
         console.log(theToken);
 
         return res.json({
