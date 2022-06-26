@@ -8,6 +8,7 @@ exports.register = async(req,res,next) => {
     console.log(req.body.email);
    
     const errors = validationResult(req);
+    
 
     if(!errors.isEmpty()){
         return res.status(422).json({ errors: errors.array() });
@@ -19,9 +20,10 @@ exports.register = async(req,res,next) => {
             "SELECT `email` FROM `users` WHERE `email`=?",
             [req.body.email]
           );
+          console.log(row);
 
         if (row.length > 0) {
-            return res.status(201).json({
+            return res.status(422).json({
                 message: "The E-mail already in use",
             });
         }

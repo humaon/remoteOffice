@@ -28,16 +28,17 @@ router.post('/register',upload.fields([{
 }, {
   name: 'attachment', maxCount: 1
 }]), [
-    body('name',"The name must be of minimum 3 characters length")
+    body('name',"The name must be of minimum 1 characters length")
     .notEmpty()
     .escape()
     .trim()
-    .isLength({ min: 3 }),
+    .isLength({ min: 1 }),
     body('email',"Invalid email address")
     .notEmpty()
     .escape()
     .trim().isEmail(),
-    body('password',"The Password must be of minimum 4 characters length").notEmpty().trim().isLength({ min: 4 }),
+    body('password',"The Password must be of minimum 6 characters length").notEmpty().trim().isLength({ min: 6 }),
+    body('dateOfBirth',"The Date of Birthd must not empty").notEmpty(),
 ], register);
 
 
@@ -46,7 +47,7 @@ router.post('/login',[
     .notEmpty()
     .escape()
     .trim().isEmail(),
-    body('password',"The Password must be of minimum 4 characters length").notEmpty().trim().isLength({ min: 4 }),
+    body('password',"The Password must be of minimum 6 characters length").notEmpty().trim().isLength({ min: 6 }),
 ],login);
 
 router.get('/getuser',getUser);
