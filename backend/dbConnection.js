@@ -4,9 +4,9 @@ const db_connection = mysql
   .createConnection({
     host: "localhost", // HOST NAME
     port:3306,
-    user: "phpmyadmin", // USER NAME
+    user: "root", // USER NAME
     database: "remoteOffice", // DATABASE NAME
-    password: "emon@121", // DATABASE PASSWORD
+    password: "remote123@", // DATABASE PASSWORD
   })
   .on("error", (err) => {
     console.log("Failed to connect to Database - ", err);
