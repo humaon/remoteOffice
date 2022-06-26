@@ -27,7 +27,7 @@ exports.getAllUsers = async (req,res,next) => {
         );
 
         if(row.length > 0){
-            console.log(row[0].role);
+           
 
             if(row[0].role == 'admin')
             {
@@ -38,19 +38,19 @@ exports.getAllUsers = async (req,res,next) => {
                  res.json(rows);
 
             }
-            res.json({
-                message:"sorry you are not admin"
+            return res.status(422).json({
+                message: "Please provide the token",
             });
             
         }
 
-        res.json({
-            message:"No user found"
+        return res.status(422).json({
+            message: "Please provide the token",
         });
         
     }
     catch(err){
-        console.log(err);
+        
         next(err);
     }
 }
@@ -129,7 +129,7 @@ exports.editUser = async (req,res,next) => {
         
     }
     catch(err){
-        console.log(err);
+      
 
         next(err);
     }
