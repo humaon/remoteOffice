@@ -1,10 +1,4 @@
 backend/node_modules
 backend/uploads
+frontend/node_modules
 
-remoteofficetest.cvmmma3xf7m2.ap-south-1.rds.amazonaws.com
-admin
-12345678
-
-mysql -h remoteofficetest.cvmmma3xf7m2.ap-south-1.rds.amazonaws.com -P 3306 -u admin -p
-
-CREATE USER 'admin'@'localhost' IDENTIFIED WITH authentication_plugin BY 'remote123@';
