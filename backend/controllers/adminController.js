@@ -32,7 +32,7 @@ exports.getAllUsers = async (req,res,next) => {
             if(row[0].role == 'admin')
             {
                 const [rows] = await conn.execute(
-                    "SELECT  `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role` FROM users where `role` = 'user'",
+                    "SELECT  `id`,`name`,`email`,`profileImage`,`dateOfBirth`,`role`,`attachment` FROM users where `role` = 'user'",
                    
                 );
                  res.json(rows);
